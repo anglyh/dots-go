@@ -1,0 +1,12 @@
+header {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(90deg, #994BF0, #7B6EF4);
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
