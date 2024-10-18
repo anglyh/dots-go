@@ -1,12 +1,13 @@
-import { useState } from 'react'
-import './App.css'
-import Home from './pages/Home/Home'
+import "./App.css";
+import Home from "./pages/Home/Home";
+import Header from "./layouts/header/Header";
 
-function App() {
-
+export default function App() {
   return (
-    <Home />
-  )
+    <div className="App">
+      <Header />
+      <Home />
+    </div>
+  );
 }
 
-export default App

@@ -1,10 +1,19 @@
 import { useState } from 'react'
+import logo from '../../assets/images/logo.png'
+import './Home.css'
+import Input from '../../components/common/Input/Input'
 
-function Home() {
+export default function Home() {
 
   return (
-    <h1>Home works</h1>
+    <div className="home">
+      <div className='home__container'>
+      <img src={logo} alt="logo" />
+      <h1>Dots-Go</h1>
+      
+      </div>
+      <Input />
+    </div>
   )
 }
 
-export default Home;
