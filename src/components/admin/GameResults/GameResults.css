@@ -1,0 +1,107 @@
+/* src/components/admin/GameResults/GameResults.css */
+
+.game-results-container {
+  padding: 40px;
+  width: 70%;
+  margin: 40px auto;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #ffffff;
+  text-align: center;
+}
+
+h2 {
+  font-size: 28px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.result-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.result-row {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1.5fr 1.5fr;
+  align-items: center;
+  column-gap: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.result-row:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.position {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Espacio más ajustado entre número e ícono */
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.position-number {
+  font-size: 32px;
+  color: #2575fc;
+}
+
+.position-icon {
+  font-size: 28px;
+}
+
+.result-info {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Menor espacio entre el ícono y el nombre */
+  font-size: 20px;
+  font-weight: bold;
+  color: #444;
+}
+
+.result-time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+  font-size: 18px;
+  color: #888;
+}
+
+.time-icon {
+  font-size: 20px;
+  color: #2575fc;
+}
+
+.result-score {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.score {
+  font-size: 18px;
+  color: #8493da; /* Verde para el puntaje de respuestas */
+  font-weight: bold;
+}
+
+.puntos {
+  font-size: 22px;
+  color: #4167d8; /* Naranja para los puntos finales */
+  font-weight: bold;
+}
