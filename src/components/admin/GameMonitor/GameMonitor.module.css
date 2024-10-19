@@ -1,0 +1,67 @@
+.gameMonitorContainer {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 255, 0.85));
+  border-radius: 15px;
+  padding: 35px;
+  width: 420px;
+  margin: 60px auto;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: #333;
+}
+
+.gameMonitorContainer h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gameInfo p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #444;
+}
+
+.gameInfo p span {
+  font-weight: 600;
+  color: #000;
+}
+
+.gameCode {
+  background-color: #fff;
+  color: #333;
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 20px 0;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.gameCode p {
+  margin: 0;
+  font-size: 14px;
+  color: #6a11cb;
+}
+
+.buttonForm {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background: linear-gradient(90deg, #4a4aff, #836fff);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.buttonForm:hover {
+  background: linear-gradient(90deg, #6a8dff, #b39dff);
+  transform: scale(1.05);
+}
