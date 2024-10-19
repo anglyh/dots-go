@@ -1,10 +1,10 @@
 import React from 'react';
-import './loginForm.css'; // Asegúrate de crear este archivo para los estilos
+import styles from "./LoginForm.module.css"
 
-const Login = () => {
+export default function LoginForm() {
   return (
-    <div className="login-container">
-      <form className="login-form">
+    <div className={styles.loginContainer}>
+      <form className={styles.loginForm}>
         <h2>Iniciar Sesion</h2>
         <label>Nombre De Usuario:</label>
         <input type="text" placeholder="Ingresa tu usuario" />
@@ -15,5 +15,3 @@ const Login = () => {
     </div>
   );
 };
-
-export default Login;

@@ -1,4 +1,4 @@
-.game-creator-container {
+.gameCreatorContainer {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 255, 0.7));
   border-radius: 20px;
   padding: 40px;
@@ -6,23 +6,22 @@
   margin: 80px auto;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   text-align: center;
-  font-family: 'Arial', sans-serif;
 }
 
-.game-creator-container h2 {
+.gameCreatorContainer h2 {
   color: #4a4aff;
   font-size: 28px;
   margin-bottom: 10px;
   font-weight: bold;
 }
 
-.game-creator-container p {
+.gameCreatorContainer p {
   color: #7a7a7a;
   font-size: 16px;
   margin-bottom: 25px;
 }
 
-.game-creator-container label {
+.gameCreatorContainer label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
@@ -30,7 +29,7 @@
   text-align: left;
 }
 
-.game-creator-container input {
+.gameCreatorContainer input {
   width: 100%;
   padding: 12px;
   margin-bottom: 20px;
@@ -43,18 +42,18 @@
   transition: box-shadow 0.3s;
 }
 
-.game-creator-container input::placeholder {
+.gameCreatorContainer input::placeholder {
   color: #bbb;
   opacity: 1;
 }
 
-.game-creator-container input:focus {
+.gameCreatorContainer input:focus {
   box-shadow: 0 0 5px rgba(74, 74, 255, 0.8);
   border: 1px solid #4a4aff; 
 }
 
 
-.game-creator-container button {
+.gameCreatorContainer button {
   width: 100%;
   padding: 12px;
   background: linear-gradient(90deg, #4a4aff, #836fff);
@@ -66,7 +65,7 @@
   transition: background 0.3s ease, transform 0.2s;
 }
 
-.game-creator-container button:hover {
+.gameCreatorContainer button:hover {
   background: linear-gradient(90deg, #6a8dff, #b39dff);
   transform: scale(1.05);
 }

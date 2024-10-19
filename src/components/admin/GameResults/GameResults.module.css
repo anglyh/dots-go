@@ -1,37 +1,34 @@
-/* src/components/admin/GameResults/GameResults.css */
-
-.game-results-container {
+.gameResultsContainer {
   padding: 40px;
   width: 70%;
   margin: 40px auto;
-  font-family: 'Poppins', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
 }
 
-h1 {
+.gameResultsContainer h1 {
   font-size: 40px;
   margin-bottom: 10px;
   color: #ffffff;
   text-align: center;
 }
 
-h2 {
+.gameResultsContainer h2 {
   font-size: 28px;
   color: #ffffff;
   margin-bottom: 20px;
 }
 
-.result-list {
+.resultList {
   display: flex;
   flex-direction: column;
   gap: 20px;
   width: 100%;
 }
 
-.result-row {
+.resultRow {
   background-color: white;
   border-radius: 12px;
   padding: 20px;
@@ -43,7 +40,7 @@ h2 {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.result-row:hover {
+.resultRow:hover {
   transform: scale(1.02);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
@@ -56,16 +53,16 @@ h2 {
   font-weight: bold;
 }
 
-.position-number {
+.resultNumber {
   font-size: 32px;
   color: #2575fc;
 }
 
-.position-icon {
+.positionIcon {
   font-size: 28px;
 }
 
-.result-info {
+.resultInfo {
   display: flex;
   align-items: center;
   gap: 8px; /* Menor espacio entre el ícono y el nombre */
@@ -74,7 +71,7 @@ h2 {
   color: #444;
 }
 
-.result-time {
+.resultTime {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -83,12 +80,12 @@ h2 {
   color: #888;
 }
 
-.time-icon {
+.timeIcon {
   font-size: 20px;
   color: #2575fc;
 }
 
-.result-score {
+.resultScore {
   display: flex;
   gap: 15px;
   align-items: center;

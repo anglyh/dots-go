@@ -1,11 +1,11 @@
 // components/auth/RegisterForm/RegisterForm.jsx
 import React from 'react';
-import './RegisterForm.css'; // Asegúrate de que el nombre coincida exactamente
+import styles from "./RegisterForm.module.css"
 
-const RegisterForm = () => {
+export default function RegisterForm() {
   return (
-    <div className="login-container">
-      <form className="login-form">
+    <div className={styles.loginContainer}>
+      <form className={styles.loginForm}>
         <h2>Crear Cuenta</h2>
         <label>Nombre De Usuario:</label>
         <input type="text" placeholder="Ingresa tu usuario" />
@@ -22,4 +22,3 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;

@@ -1,24 +1,21 @@
-.home {
+.homeWrapper {
   display: flex;
   flex-flow: column;
-  align-items: center;
   gap: 3rem;
   max-width: 1440px;
-  margin: 0 auto;
-  margin-top: 1rem;
+  margin-top: 6rem;
+  padding: 0 1rem;
 }
 
-.home img {
+.homeWrapper img {
   height: 250px;
-  width: 250px;
-  text-align: center;
 }
 
-.home__container {
+.homeContainer {
   display: flex;
   flex-flow: column;
   align-items: center;
   gap: 1rem;
-  width: 350px;
 }
+
 

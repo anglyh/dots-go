@@ -1,8 +1,7 @@
-// src/components/admin/GameCreator/GameCreator.jsx
 import React, { useState } from "react";
-import "./GameCreator.css";
+import styles from "./GameCreator.module.css"
 
-const GameCreator = ({ onCrearJuego }) => {
+export default function GameCreator ({ onCrearJuego }) {
   const [nombreJuego, setNombreJuego] = useState("");
   const [tiempoJuego, setTiempoJuego] = useState("");
 
@@ -15,7 +14,7 @@ const GameCreator = ({ onCrearJuego }) => {
   };
 
   return (
-    <div className="game-creator-container">
+    <div className={styles.gameCreatorContainer}>
       <h2>Crear Nuevo Juego</h2>
       <p>Completa los detalles para generar tu juego</p>
 
@@ -40,4 +39,3 @@ const GameCreator = ({ onCrearJuego }) => {
   );
 };
 
-export default GameCreator;

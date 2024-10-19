@@ -1,16 +1,4 @@
-/* loginForm.css */
-
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.login-container {
+.loginContainer {
     background-color: rgba(255, 255, 255, 0.85);
     padding: 30px;
     border-radius: 15px;
@@ -24,7 +12,7 @@ html, body {
     justify-content: center;
 }
 
-.login-form h2 {
+.loginForm h2 {
     background: linear-gradient(45deg, #6a11cb, #2575fc);
     -webkit-background-clip: text;
     background-clip: text;
@@ -32,7 +20,7 @@ html, body {
     margin-bottom: 20px;
 }
 
-.login-form label {
+.loginForm label {
     display: block;
     margin: 10px 0 5px;
     text-align: left;
@@ -41,7 +29,7 @@ html, body {
     width: 100%; /* Se alinean con el formulario */
 }
 
-.login-form input {
+.loginForm input {
     width: 100%;
     padding: 12px; /* Padding más cómodo */
     margin-bottom: 15px;
@@ -51,12 +39,12 @@ html, body {
     color: #333;
 }
 
-.login-form input::placeholder {
+.loginForm input::placeholder {
     color: #999;
     opacity: 1;
 }
 
-.login-form button {
+.loginForm button {
     background: linear-gradient(45deg, #4e54c8, #8f94fb);
     border: none;
     padding: 12px 20px;
@@ -68,6 +56,6 @@ html, body {
     margin-top: 10px;
 }
 
-.login-form button:hover {
+.loginForm button:hover {
     opacity: 0.9;
 }

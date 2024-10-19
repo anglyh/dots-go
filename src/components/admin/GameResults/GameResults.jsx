@@ -1,8 +1,8 @@
 // src/components/admin/GameResults/GameResults.jsx
 import React from "react";
-import "./GameResults.css";
+import styles from "./GameResults.module.css"
 
-const GameResults = ({ resultados }) => {
+export default function GameResults ({ resultados }) {
   const getPlaceIcon = (index) => {
     if (index === 0) return "🥇"; // Primer lugar
     if (index === 1) return "🥈"; // Segundo lugar
@@ -17,31 +17,31 @@ const GameResults = ({ resultados }) => {
   };
 
   return (
-    <div className="game-results-container">
+    <div className={styles.gameResultsContainer}>
       <h1>Resultados Finales</h1>
 
       <h2>Tabla de Clasificación</h2>
 
-      <div className="result-list">
+      <div className={styles.resultList}>
         {resultados.map((resultado, index) => (
           <div
             key={index}
-            className={`result-row ${index === 0 ? "gold" : index === 1 ? "silver" : index === 2 ? "bronze" : ""}`}
+            className={`${styles.resultRow} ${index === 0 ? "gold" : index === 1 ? "silver" : index === 2 ? "bronze" : ""}`}
           >
-            <div className="position">
-              <span className="position-number">{index + 1}</span>
-              <span className="position-icon">{getPlaceIcon(index)}</span>
+            <div className={styles.position}>
+              <span className={styles.positionNumber}>{index + 1}</span>
+              <span className={styles.positionIcon}>{getPlaceIcon(index)}</span>
             </div>
-            <div className="result-info">
-              <span className="nombre">{resultado.nombre}</span>
+            <div className={styles.resultInfo}>
+              <span className={styles.nombre}>{resultado.nombre}</span>
             </div>
-            <div className="result-time">
-              <span className="time-icon">🕒</span>
-              <span className="time">{formatTime(resultado.tiempo)}</span>
+            <div className={styles.resultTime}>
+              <span className={styles.timeIcon}>🕒</span>
+              <span className={styles.time}>{formatTime(resultado.tiempo)}</span>
             </div>
-            <div className="result-score">
-              <span className="score">{resultado.correctas}/{resultado.total}</span>
-              <span className="puntos">{resultado.puntos} pts</span>
+            <div className={styles.resultScore}>
+              <span className={styles.score}>{resultado.correctas}/{resultado.total}</span>
+              <span className={styles.puntos}>{resultado.puntos} pts</span>
             </div>
           </div>
         ))}
@@ -50,4 +50,3 @@ const GameResults = ({ resultados }) => {
   );
 };
 
-export default GameResults;
