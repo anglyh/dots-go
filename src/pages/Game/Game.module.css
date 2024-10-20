@@ -1,0 +1,41 @@
+.gameWrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-flow: column;
+  padding-top: 2rem;
+}
+
+.gameContainer {
+  display: flex;
+  height: max-content;
+  width: 100%;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.numbersContainer {
+  position: absolute;
+  right: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .5rem;
+  z-index: 2;
+  margin: 0 20px 0 0;
+}
+
+.acceptButton {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 15px;
+  z-index: 10;
+}
+
+.cardContainer {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  justify-content: center;
+}

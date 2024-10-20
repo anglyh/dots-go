@@ -1,28 +1,52 @@
 import React from "react";
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Header from "./layouts/header/Header";
 import Admin from "./pages/Admin/Admin";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
-import NotFound from "./pages/Not Found/NotFound";
+import NotFound from "./pages/NotFound/NotFound";
+import Layout from "./layouts/layout/Layout";
+import Game from "./pages/Game/Game";
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home/>,
-    errorElement: <NotFound/>
+    element: (
+      <Layout>
+        <Home />
+      </Layout>
+    ),
+    errorElement: <NotFound />
   },
   {
     path: '/login',
-    element: <Login/>
+    element: (
+      <Layout>
+        <Login />
+      </Layout>
+    )
+  },
+  {
+    path: '/admin',
+    element: (
+      <Layout>
+        <Admin />
+      </Layout>
+    )
+  },
+  {
+    path: '/game',
+    element: (
+      <Layout>
+        <Game />
+      </Layout>
+    )
   }
 ]);
 
 export default function App() { 
   return (
     <div className="App">
-      <Header />
       <RouterProvider router={router}/>
     </div>
   );

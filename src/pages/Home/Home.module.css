@@ -2,13 +2,12 @@
   display: flex;
   flex-flow: column;
   gap: 3rem;
-  max-width: 1440px;
+  width: min(500px, 90%);
   margin-top: 6rem;
-  padding: 0 1rem;
 }
 
 .homeWrapper img {
-  height: 250px;
+  height: 250px;  
 }
 
 .homeContainer {

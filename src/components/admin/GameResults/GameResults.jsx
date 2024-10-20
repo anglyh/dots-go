@@ -1,4 +1,3 @@
-// src/components/admin/GameResults/GameResults.jsx
 import React from "react";
 import styles from "./GameResults.module.css"
 

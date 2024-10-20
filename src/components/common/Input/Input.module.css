@@ -1,12 +1,13 @@
-.input-container {
+.inputContainer {
   display: flex;
   background-color: #ffffff;
   border: solid 3px #F0C900;
   border-radius: 16px;
   padding: 12px 20px;
+  width: 100%;
 }
 
-.custom-input {
+.customInput {
   background-color: transparent;
   border: none;
   color: #202938;

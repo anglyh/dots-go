@@ -1,4 +1,3 @@
-// src/components/admin/GameMonitor/GameMonitor.jsx
 import React from 'react';
 import styles from "./GameMonitor.module.css"
 

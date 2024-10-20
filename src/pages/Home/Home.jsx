@@ -10,7 +10,7 @@ export default function Home() {
         <img src={logo} alt="logo" />
         <h1>Dots-Go</h1>
       </div>
-      <Input />
+      <Input navigate="/game"/>
     </div>
   );
 }

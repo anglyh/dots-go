@@ -1,16 +1,19 @@
 import React from 'react'
-import './Input.css'
+import styles from "./Input.module.css"
 import Button from '../Button/Button'
+import { Link } from 'react-router-dom'
 
-export default function Input() {
+export default function Input({ navigate }) {
   return (
-    <div className='input-container'>
+    <div className={styles.inputContainer}>
       <input 
         type="text" 
         placeholder='Ingresa un código'
-        className='custom-input'
+        className={styles.customInput}
       />
-      <Button children="Unirse" />
+      <Button>
+        <Link to={navigate}>Unirse</Link>
+      </Button>
     </div>
   )
 }

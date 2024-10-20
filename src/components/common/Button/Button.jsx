@@ -1,11 +1,14 @@
-import React from 'react'
-import styles from "./Button.module.css"
+import React from "react";
+import styles from "./Button.module.css";
 
-export default function Button({ children }) {
-  console.log(styles);
+export default function Button({ children, onClick, disabled }) {
   return (
-    <button className={styles.customButton}>
+    <button
+      className={styles.customButton}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </button>
-  )
+  );
 }

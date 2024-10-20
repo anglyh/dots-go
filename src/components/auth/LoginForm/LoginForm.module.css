@@ -1,4 +1,4 @@
-.login-container {
+.loginContainer {
     background-color: rgba(255, 255, 255, 0.85); 
     padding: 40px; 
     border-radius: 20px; 
@@ -11,9 +11,10 @@
     align-items: center;
     justify-content: center;
     gap: 15px; 
+    margin-top: 6rem;
 }
 
-.login-form h2 {
+.loginForm h2 {
     background: linear-gradient(45deg, #6a11cb, #2575fc);
     -webkit-background-clip: text;
     background-clip: text;
@@ -22,7 +23,7 @@
     font-size: 2rem; 
 }
 
-.login-form label {
+.loginForm label {
     display: block;
     margin: 10px 0 8px;
     text-align: left;
@@ -32,7 +33,7 @@
     width: 100%;
 }
 
-.login-form input {
+.loginForm input {
     width: 100%;
     padding: 15px; 
     margin-bottom: 20px;
@@ -43,12 +44,12 @@
     font-size: 1rem; 
 }
 
-.login-form input::placeholder {
+.loginForm input::placeholder {
     color: #999; 
     opacity: 1; 
 }
 
-.login-form button {
+.loginForm button {
     background: linear-gradient(45deg, #4e54c8, #8f94fb);
     border: none;
     padding: 15px 20px; 
@@ -60,6 +61,6 @@
     font-size: 1.2rem; 
 }
 
-.login-form button:hover {
+.loginForm button:hover {
     opacity: 0.9;
 }
