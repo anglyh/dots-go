@@ -1,61 +1,68 @@
-.loginContainer {
-    background-color: rgba(255, 255, 255, 0.85);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    width: 500px; /* Aumentado a 500px */
-    max-width: 90%; /* Para pantallas pequeñas */
+
+.contenedorRegistro {
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 40px; 
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    width: 400px; 
+    max-width: 90%;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    gap: 25px; 
+    margin: auto;
 }
 
-.loginForm h2 {
+.tituloRegistro {
     background: linear-gradient(45deg, #6a11cb, #2575fc);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-size: 2.2rem;
+    font-weight: bold;
 }
 
-.loginForm label {
-    display: block;
-    margin: 10px 0 5px;
+.labelRegistro {
+    width: 100%;
     text-align: left;
     font-weight: bold;
     color: #333;
-    width: 100%; /* Se alinean con el formulario */
+    font-size: 1.2rem;
+    margin-bottom: 8px;
 }
 
-.loginForm input {
+.inputRegistro {
     width: 100%;
-    padding: 12px; /* Padding más cómodo */
-    margin-bottom: 15px;
+    padding: 15px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
     background-color: white;
-    color: #333;
+    color: #030303;
 }
 
-.loginForm input::placeholder {
+.inputRegistro::placeholder {
     color: #999;
     opacity: 1;
 }
 
-.loginForm button {
+.botonRegistro {
     background: linear-gradient(45deg, #4e54c8, #8f94fb);
     border: none;
-    padding: 12px 20px;
-    border-radius: 20px;
+    padding: 15px;
+    border-radius: 30px;
     color: white;
     font-weight: bold;
     cursor: pointer;
     width: 100%;
-    margin-top: 10px;
+    font-size: 1.3rem;
+    transition: opacity 0.3s ease;
 }
 
-.loginForm button:hover {
+
+.botonRegistro:hover {
     opacity: 0.9;
 }
