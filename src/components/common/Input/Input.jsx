@@ -11,9 +11,9 @@ export default function Input({ navigate }) {
         placeholder='Ingresa un código'
         className={styles.customInput}
       />
-      <Button>
-        <Link to={navigate}>Unirse</Link>
-      </Button>
+      <Link to={navigate}>
+        <Button children="Unirse"/>
+      </Link>
     </div>
   )
 }

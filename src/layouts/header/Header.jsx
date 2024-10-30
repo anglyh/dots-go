@@ -9,8 +9,12 @@ export default function Header() {
     <header className={styles.header}>
       <Link to="/"><img src={logo_small} /></Link>
       <nav className={styles.headerNav}>
-        <Button children="Iniciar Sesión" />
-        <Button children="Registrarse" />
+        <Link to="/login">
+          <Button children="Iniciar Sesión" />
+        </Link>
+        <Link to="/register">
+          <Button children="Registrarse" />
+        </Link>
       </nav>
     </header>
   );
