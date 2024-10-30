@@ -1,66 +1,67 @@
-.loginContainer {
-    background-color: rgba(255, 255, 255, 0.85); 
+
+.contenedorFormulario {
+    background-color: rgba(255, 255, 255, 0.9); 
     padding: 40px; 
-    border-radius: 20px; 
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3); 
-    width: 600px; 
-    max-width: 90%; 
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    width: 400px; 
+    max-width: 90%;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 15px; 
-    margin-top: 6rem;
+    gap: 25px; 
+    margin: auto; 
 }
 
-.loginForm h2 {
+.formularioTitulo {
     background: linear-gradient(45deg, #6a11cb, #2575fc);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 30px; 
-    font-size: 2rem; 
+    margin-bottom: 25px; 
+    font-size: 2.2rem; 
+    font-weight: bold;
 }
 
-.loginForm label {
-    display: block;
-    margin: 10px 0 8px;
+.formularioLabel {
+    width: 100%;
     text-align: left;
     font-weight: bold;
     color: #333;
     font-size: 1.2rem; 
-    width: 100%;
+    margin-bottom: 8px; 
 }
 
-.loginForm input {
+.formularioInput {
     width: 100%;
-    padding: 15px; 
-    margin-bottom: 20px;
+    padding: 15px;
     border: 1px solid #ccc;
-    border-radius: 10px; 
-    background-color: white; 
-    color: #333; 
-    font-size: 1rem; 
+    color: #070707;
+    border-radius: 10px;
+    margin-bottom: 20px; 
+    font-size: 1.2rem; 
+    background-color: white;
 }
 
-.loginForm input::placeholder {
-    color: #999; 
-    opacity: 1; 
+.formularioInput::placeholder {
+    color: #999;
+    opacity: 1;
 }
 
-.loginForm button {
+.formularioBoton {
     background: linear-gradient(45deg, #4e54c8, #8f94fb);
     border: none;
-    padding: 15px 20px; 
-    border-radius: 25px; 
+    padding: 15px; 
+    border-radius: 30px;
     color: white;
     font-weight: bold;
     cursor: pointer;
     width: 100%;
-    font-size: 1.2rem; 
+    font-size: 1.3rem; 
+    transition: opacity 0.3s ease;
 }
 
-.loginForm button:hover {
+.formularioBoton:hover {
     opacity: 0.9;
 }
