@@ -8,7 +8,7 @@ import Register from "./pages/Register/Register";
 import NotFound from "./pages/NotFound/NotFound";
 import Layout from "./layouts/layout/Layout";
 import Game from "./pages/Game/Game";
-//import JoinGame from "./pages/Home/JoinGame";
+import JoinGame from "./pages/Home/JoinGame";
 
 const router = createBrowserRouter([
   {
@@ -20,14 +20,14 @@ const router = createBrowserRouter([
     ),
     errorElement: <NotFound />
   },
-  // {
-  //   path: '/join',
-  //   element: (
-  //     <Layout>
-  //       <JoinGame />
-  //     </Layout>
-  //   ),
-  // },
+  {
+    path: '/join',
+    element: (
+      <Layout>
+        <JoinGame />
+      </Layout>
+    ),
+  },
   {
     path: '/login',
     element: (

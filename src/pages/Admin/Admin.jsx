@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+// Admin.js
+import React, { useState, useEffect } from "react";
+import { socket, connectSocket, disconnectSocket } from "../../services/websocket/socketService";
 import GameCreator from "../../components/admin/GameCreator/GameCreator";
 import GameMonitor from "../../components/admin/GameMonitor/GameMonitor";
 import GameResults from "../../components/admin/GameResults/GameResults";
@@ -6,7 +8,6 @@ import GameResults from "../../components/admin/GameResults/GameResults";
 export default function Admin() {
   const [juegoCreado, setJuegoCreado] = useState(false);
   const [mostrarResultados, setMostrarResultados] = useState(false);
-  const [nombre, setNombre] = useState("");
   const [tiempo, setTiempo] = useState("");
   const [codigo, setCodigo] = useState("");
 
@@ -18,19 +19,37 @@ export default function Admin() {
     { nombre: "Sofía Torres", puntos: 760, correctas: 10, total: 20, tiempo: 240 },
   ];
 
-  const generarCodigoAleatorio = () => {
-    return Math.random().toString(36).substring(2, 8).toUpperCase();
-  };
+  useEffect(() => {
+    connectSocket(); // Conecta el socket al montar el componente
 
-  const handleCrearJuego = (nombreJuego, tiempoJuego) => {
-    setNombre(nombreJuego);
-    setTiempo(tiempoJuego);
-    setCodigo(generarCodigoAleatorio());
-    setJuegoCreado(true);
+    // Limpia y desconecta el socket al desmontar el componente
+    return () => {
+      disconnectSocket();
+    };
+  }, []);
+
+  const handleCrearJuego = (tiempoJuego) => {
+    // Emitimos el evento 'create-game' al backend con el tiempo en segundos
+    socket.emit("create-game", { timeLimit: parseInt(tiempoJuego) }, (response) => {
+      if (response.success) {
+        setCodigo(response.pin);
+        setTiempo(tiempoJuego);  // Guardamos el tiempo en segundos
+        setJuegoCreado(true);
+      } else {
+        alert(response.error || "Error al crear el juego");
+      }
+    });
   };
 
   const handleIniciarJuego = () => {
-    setMostrarResultados(true); // Cambia la vista a GameResults.
+    // Emitir el evento `start-game` al backend
+    socket.emit("start-game", { pin: codigo }, (response) => {
+      if (response.success) {
+        setMostrarResultados(true);
+      } else {
+        alert(response.error || "Error al iniciar el juego");
+      }
+    });
   };
 
   return (
@@ -39,7 +58,6 @@ export default function Admin() {
         <GameCreator onCrearJuego={handleCrearJuego} />
       ) : juegoCreado && !mostrarResultados ? (
         <GameMonitor
-          nombre={nombre}
           tiempo={tiempo}
           codigo={codigo}
           onIniciarJuego={handleIniciarJuego}
