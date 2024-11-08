@@ -5,11 +5,11 @@ import styles from "./Home.module.css";
 import Input from "../../components/common/Input/Input";
 
 export default function Home() {
-  // const [error, setError] = useState("");
-  const navigate = useNavigate();
+  //const [error, setError] = useState("");
+  //const navigate = useNavigate();
 
   // const handleJoinGame = (pin) => {
-  //   localStorage.setItem('gamePin', pin);
+  //   localStorage.setItem('gamePin', pin);  
   //   navigate('/join');
   // };
 

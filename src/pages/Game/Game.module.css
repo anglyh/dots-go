@@ -3,15 +3,17 @@
   width: 100%;
   align-items: center;
   flex-flow: column;
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 
 .gameContainer {
   display: flex;
+  flex-flow: column;
+  align-items: center;
   height: max-content;
+  gap: 2rem;
   width: 100%;
   justify-content: center;
-  margin-top: 2rem;
 }
 
 .numbersContainer {
@@ -44,6 +46,10 @@
 .questionContainer {
   margin-bottom: 20px;
   text-align: center;
+
+  h2, p {
+    color: #000000;
+  }
 }
 
 .feedback {

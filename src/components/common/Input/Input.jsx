@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import styles from "./Input.module.css";
 import Button from '../Button/Button';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Input() {
   const [pin, setPin] = useState('');
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (pin.trim()) {
       localStorage.setItem('gamePin', pin);
-      // navigate('/join');  // Comentamos la redirección
+      navigate('/join');  // Navega a la pantalla de JoinGame
     }
   };
 
