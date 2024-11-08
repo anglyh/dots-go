@@ -15,14 +15,12 @@
 }
 
 .tituloRegistro {
-    background: linear-gradient(45deg, #6a11cb, #2575fc);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: black;
     margin-bottom: 25px;
     font-size: 2.2rem;
     font-weight: bold;
 }
+
 
 .labelRegistro {
     width: 100%;
@@ -50,7 +48,7 @@
 }
 
 .botonRegistro {
-    background: linear-gradient(45deg, #4e54c8, #8f94fb);
+    background-color: black;
     border: none;
     padding: 15px;
     border-radius: 30px;
@@ -61,6 +59,7 @@
     font-size: 1.3rem;
     transition: opacity 0.3s ease;
 }
+
 
 
 .botonRegistro:hover {
