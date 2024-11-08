@@ -60,7 +60,7 @@
 
 .handCard:nth-of-type(6) {
   rotate: 10deg;
-  transform: translate(-75px, 40px)
+  transform: translate(-75px, 37px)
 }
 
 .handCard:nth-of-type(6):hover {
@@ -69,7 +69,7 @@
 
 .handCard:nth-of-type(7) {
   rotate: 20deg;
-  transform: translate(-110px, 79px)
+  transform: translate(-110px, 77px)
 }
 
 .handCard:nth-of-type(7):hover {

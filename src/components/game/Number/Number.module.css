@@ -2,11 +2,11 @@
   height: 60px;
   width: 60px;
   background-color: #ffffff;
-  color: #000;
   border-radius: 5px;
+  box-shadow: 2px 2px 1px #000;
+  color: #000;
   border: none;
   cursor: pointer;
-  box-shadow: 2px 2px 1px #000;
   font-family: inherit;
   font-size: 1.6rem;
   transition: transform .2s;

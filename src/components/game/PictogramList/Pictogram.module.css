@@ -2,7 +2,11 @@
   cursor: pointer;
   background-color: transparent;
   border: none;
-  transition: transform 0.2s;
+  position: relative;
+  transition: transform .2s;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 2px 2px 1px #000;
 }
 
 .pictogramButton:hover {
@@ -15,6 +19,7 @@
 }
 
 .pictogramImage {
-  width: 100%;
-  height: auto;
+  width: 75px;
+  height: 75px;
 }
+

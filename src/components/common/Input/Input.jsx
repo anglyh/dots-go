@@ -1,19 +1,30 @@
-import React from 'react'
-import styles from "./Input.module.css"
-import Button from '../Button/Button'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import styles from "./Input.module.css";
+import Button from '../Button/Button';
+// import { useNavigate } from 'react-router-dom';
 
-export default function Input({ navigate }) {
+export default function Input() {
+  const [pin, setPin] = useState('');
+  // const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (pin.trim()) {
+      localStorage.setItem('gamePin', pin);
+      // navigate('/join');  // Comentamos la redirección
+    }
+  };
+
   return (
-    <div className={styles.inputContainer}>
+    <form onSubmit={handleSubmit} className={styles.inputContainer}>
       <input 
         type="text" 
         placeholder='Ingresa un código'
         className={styles.customInput}
+        value={pin}
+        onChange={(e) => setPin(e.target.value)}
       />
-      <Link to={navigate}>
-        <Button children="Unirse"/>
-      </Link>
-    </div>
-  )
+      <Button type="submit">Unirse</Button>
+    </form>
+  );
 }

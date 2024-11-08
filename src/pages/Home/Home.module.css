@@ -15,6 +15,14 @@
   flex-flow: column;
   align-items: center;
   gap: 1rem;
+
+  h1 {
+    color: #424242;
+  }
 }
+
+
+
+
 
 

@@ -1,26 +1,26 @@
 import React from 'react'
 import styles from "./PictogramList.module.css"
 import Pictogram from './Pictogram'
-import GHS01 from "../../../assets/images/pictograms/GHS01.svg"
-import GHS02 from "../../../assets/images/pictograms/GHS02.svg"
-import GHS03 from "../../../assets/images/pictograms/GHS03.svg"
-import GHS04 from "../../../assets/images/pictograms/GHS04.svg"
-import GHS05 from "../../../assets/images/pictograms/GHS05.svg"
-import GHS06 from "../../../assets/images/pictograms/GHS06.svg"
-import GHS07 from "../../../assets/images/pictograms/GHS07.svg"
-import GHS08 from "../../../assets/images/pictograms/GHS08.svg"
-import GHS09 from "../../../assets/images/pictograms/GHS09.svg"
+import botella from "../../../assets/images/pictograms/botella.svg"
+import calavera from "../../../assets/images/pictograms/calavera.svg"
+import corrosivo from "../../../assets/images/pictograms/corrosivo.svg"
+import explosivo from "../../../assets/images/pictograms/explosivo.svg"
+import fuego from "../../../assets/images/pictograms/fuego.svg"
+import oxidante from "../../../assets/images/pictograms/oxidante.svg"
+import baterias from "../../../assets/images/pictograms/baterias.svg"
+import riesgoBiologico from "../../../assets/images/pictograms/riesgo-biologico.svg"
+import radioactivo from "../../../assets/images/pictograms/radioactivo.svg"
 
 const PICTOGRAMS = [
-  { id: 'GHS01', src: GHS01 },
-  { id: 'GHS02', src: GHS02 },
-  { id: 'GHS03', src: GHS03 },
-  { id: 'GHS04', src: GHS04 },
-  { id: 'GHS05', src: GHS05 },
-  { id: 'GHS06', src: GHS06 },
-  { id: 'GHS07', src: GHS07 },
-  { id: 'GHS08', src: GHS08 },
-  { id: 'GHS09', src: GHS09 },
+  { id: 'botella', src: botella },
+  { id: 'calavera', src: calavera },
+  { id: 'corrosivo', src: corrosivo },
+  { id: 'explosivo', src: explosivo },
+  { id: 'fuego', src: fuego },
+  { id: 'oxidante', src: oxidante },
+  { id: 'baterias', src: baterias },
+  { id: 'riesgoBiologico', src: riesgoBiologico },
+  { id: 'radioactivo', src: radioactivo },
 ];
 
 export default function PictogramList({ onPictogramSelect, selectedPictogram }) {
@@ -37,3 +37,4 @@ export default function PictogramList({ onPictogramSelect, selectedPictogram }) 
     </div>
   )
 }
+
