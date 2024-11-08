@@ -15,14 +15,12 @@
 }
 
 .formularioTitulo {
-    background: linear-gradient(45deg, #6a11cb, #2575fc);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: black;
     margin-bottom: 25px; 
     font-size: 2.2rem; 
     font-weight: bold;
 }
+
 
 .formularioLabel {
     width: 100%;
@@ -50,17 +48,18 @@
 }
 
 .formularioBoton {
-    background: linear-gradient(45deg, #4e54c8, #8f94fb);
+    background-color: rgb(18, 18, 18);
     border: none;
     padding: 15px; 
     border-radius: 30px;
-    color: white;
+    color: rgb(255, 255, 255);
     font-weight: bold;
     cursor: pointer;
     width: 100%;
     font-size: 1.3rem; 
     transition: opacity 0.3s ease;
 }
+
 
 .formularioBoton:hover {
     opacity: 0.9;
