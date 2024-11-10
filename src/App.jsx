@@ -9,7 +9,7 @@ import NotFound from "./pages/NotFound/NotFound";
 import Layout from "./layouts/layout/Layout";
 import Game from "./pages/Game/Game";
 import JoinGame from "./pages/Home/JoinGame";
-import GameResults from "./components/admin/GameResults/GameResults";
+import GameResults from "./pages/GameResults/GameResults";
 
 const router = createBrowserRouter([
   {
@@ -56,9 +56,7 @@ const router = createBrowserRouter([
   {
     path: '/game',
     element: (
-      <Layout>
-        <Game />
-      </Layout>
+      <Game />
     )
   },
   {

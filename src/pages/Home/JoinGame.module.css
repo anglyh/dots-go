@@ -1,38 +1,31 @@
-.joinGameWrapper {
+.joinWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 70vh;
-  padding: 20px;
+  gap: 2rem;
+  width: min(500px, 90%);
+  margin-top: 6rem;
 }
 
-.joinGameForm {
+.joinContainer {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  max-width: 300px;
-  margin-top: 20px;
+  align-items: center;
+  gap: 1rem;
 }
 
-.customInput {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  width: 100%;
-  box-sizing: border-box;
+.joinContainer img {
+  height: 200px;
+}
+
+.joinContainer h1 {
+  color: #31363F;
+  font-size: 2rem;
 }
 
 .error {
-  color: #ff3333;
+  color: #e74c3c;
+  font-size: 14px;
   margin-top: 10px;
   text-align: center;
-  font-size: 14px;
-}
-
-.joinGameWrapper h2 {
-  color: #333;
-  margin-bottom: 20px;
 }

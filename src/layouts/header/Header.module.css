@@ -3,25 +3,26 @@
   justify-content: space-between;
   align-items: center;
   padding: .6rem 2rem;
-  background: #60cfcc;
+  background: #222831;
   width: 100%;
   position: sticky;
   top: 0;
   left: 0;
   z-index: 1000;
-}
 
-.header img {
-  width: 3.2rem !important;
-  height: 3.2rem !important;
-  object-fit: cover;
-}
+  img {
+    display: flex;
+    width: 2.3rem !important;
+    height: 2.3rem !important;
+    object-fit: cover;
+  }
 
-.header a {
-  height: auto;
-  margin: 0;
-  padding: 0;
-  align-self: center;
+  a {
+    height: auto;
+    margin: 0;
+    padding: 0;
+    align-self: center;
+  }
 }
 
 .headerNav {

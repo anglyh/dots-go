@@ -50,7 +50,7 @@ export default function Game() {
       }
     });
 
-    socket.on("game-ended", (results) => {
+    socket.on("game-ended", ({ results }) => {
       console.log("Resultados finales recibidos en Game.jsx:", results);
       navigate("/game-results", { state: { results } });
     });
@@ -62,17 +62,15 @@ export default function Game() {
     };
   }, [navigate]);
 
-  // Temporizador mejorado
+  // Temporizador optimizado
   useEffect(() => {
-    if (timeLeft === null || timeLeft <= 0 || hasAnswered) return;
+    if (timeLeft === null || hasAnswered) return;
 
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
         if (prev <= 1) {
           clearInterval(timer);
-          if (!hasAnswered) {
-            sendEmptyAnswer();
-          }
+          confirmResults(); // Llamar a confirmResults directamente al agotar el tiempo
           return 0;
         }
         return prev - 1;
@@ -81,31 +79,6 @@ export default function Game() {
 
     return () => clearInterval(timer);
   }, [timeLeft, hasAnswered]);
-
-  // Función mejorada para enviar respuesta vacía
-  const sendEmptyAnswer = async () => {
-    if (hasAnswered) return; // Evitar envíos múltiples
-
-    const pin = localStorage.getItem("gamePin");
-    const emptyAnswer = {
-      pictogram: null,
-      colors: [],
-      number: null,
-    };
-    
-    try {
-      socket.emit("submit-answer", { pin, answer: emptyAnswer, responseTime: 0 }, (response) => {
-        if (response.success) {
-          setMessage("Tiempo agotado - No respondiste a tiempo");
-          setHasAnswered(true);
-        } else {
-          console.error("Error al enviar respuesta vacía:", response.error);
-        }
-      });
-    } catch (error) {
-      console.error("Error al enviar respuesta vacía:", error);
-    }
-  };
 
   const resetBoard = () => {
     setTopPictogram(null);
@@ -135,7 +108,7 @@ export default function Game() {
       number: bottomNumber,
     };
 
-    socket.emit("submit-answer", { pin, answer, responseTime: timeLeft }, (response) => {
+    socket.emit("submit-answer", { pin, answer, responseTime: timeLeft || 0 }, (response) => {
       if (response.success) {
         setMessage(response.isCorrect ? "¡Respuesta correcta!" : "Respuesta incorrecta.");
         setHasAnswered(true);

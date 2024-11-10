@@ -9,11 +9,14 @@ export default function Header() {
     <header className={styles.header}>
       <Link to="/"><img src={logo_small} /></Link>
       <nav className={styles.headerNav}>
-        <Link to="/login">
+        {/* <Link to="/login">
           <Button children="Iniciar Sesión" />
         </Link>
         <Link to="/register">
           <Button children="Registrarse" />
+        </Link> */}
+        <Link to="/admin">
+          <Button children="Crear partida" />
         </Link>
       </nav>
     </header>

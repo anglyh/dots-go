@@ -16,6 +16,7 @@ export default function Admin() {
 
     // Escuchar el evento de finalización del juego
     socket.on("game-ended", ({ results }) => {
+      console.log("Resultados finales recibidos en Game.jsx:", results);
       navigate("/game-results", { state: { results } });
     });
 

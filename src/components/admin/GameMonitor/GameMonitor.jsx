@@ -8,7 +8,7 @@ export default function GameMonitor({ tiempo, codigo, onIniciarJuego, esperandoR
       <div className={styles.gameMonitorContainer}>
         <h2>¡Juego Creado!</h2>
         <div className={styles.gameInfo}>
-          <p><strong>Tiempo:</strong> {tiempo} minutos</p>
+          <p><strong>Tiempo:</strong> {tiempo} segundos por pregunta</p>
         </div>
         <div className={styles.gameCode}>
           <p>Código de Juego</p>
