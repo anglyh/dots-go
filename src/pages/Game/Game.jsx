@@ -6,29 +6,26 @@ import PictogramList from "../../components/game/PictogramList/PictogramList";
 import Number from "../../components/game/Number/Number";
 import Button from "../../components/common/Button/Button";
 import { socket } from "../../services/websocket/socketService";
+import { useNavigate } from "react-router-dom";
 
 export default function Game() {
   const COLORS = ["white", "red", "black", "yellow", "blue", "green", "orange"];
-  const NUMBERS = [
-    1, 2.1, 2.2, 2.3, 3, 4.1, 4.2, 4.3, 5.1, 5.2,
-    6.1, 6.2, 7, 8, 9,
-  ];
+  const NUMBERS = [1, 2, 3, 4, 5.1, 5.2, 6, 7, 8, 9];
+  const navigate = useNavigate();
 
   const [topPictogram, setTopPictogram] = useState(null);
   const [centerCards, setCenterCards] = useState([]);
   const [bottomNumber, setBottomNumber] = useState(null);
-
+  
   const [question, setQuestion] = useState(null);
   const [timeLeft, setTimeLeft] = useState(null);
-  const [nextQuestionTime, setNextQuestionTime] = useState(null);
 
   const [message, setMessage] = useState("");
-  const [hasAnswered, setHasAnswered] = useState(false); 
+  const [hasAnswered, setHasAnswered] = useState(false);
 
   useEffect(() => {
     const pin = localStorage.getItem("gamePin");
 
-    // Solicitar la pregunta actual al iniciar
     socket.emit("request-current-question", { pin }, (response) => {
       if (response.success) {
         setQuestion(response.question);
@@ -38,65 +35,82 @@ export default function Game() {
       }
     });
 
-    // Escuchar el evento cuando inicia una nueva pregunta
-    socket.on("game-started", ({ question, timeLimit, nextQuestionTime }) => {
+    socket.on("game-started", ({ question, timeLimit }) => {
       setQuestion(question);
-      setNextQuestionTime(nextQuestionTime);
+      setTimeLeft(timeLimit);
       setHasAnswered(false);
       setMessage("");
-      resetBoard(); // Limpiar el tablero al iniciar una nueva pregunta
+      resetBoard();
     });
 
-    // Escuchar el evento cuando alguien responde
     socket.on("player-answered", ({ playerId, isCorrect }) => {
       if (socket.id === playerId) {
         setMessage(isCorrect ? "¡Respuesta correcta!" : "Respuesta incorrecta.");
+        setHasAnswered(true);
       }
+    });
+
+    socket.on("game-ended", (results) => {
+      console.log("Resultados finales recibidos en Game.jsx:", results);
+      navigate("/game-results", { state: { results } });
     });
 
     return () => {
       socket.off("game-started");
       socket.off("player-answered");
+      socket.off("game-ended");
     };
-  }, []);
+  }, [navigate]);
 
-  // Temporizador basado en la hora de la próxima pregunta
+  // Temporizador mejorado
   useEffect(() => {
-    if (!nextQuestionTime) return;
+    if (timeLeft === null || timeLeft <= 0 || hasAnswered) return;
 
     const timer = setInterval(() => {
-      const remainingTime = Math.max(0, Math.floor((nextQuestionTime - Date.now()) / 1000));
-      setTimeLeft(remainingTime);
-
-      if (remainingTime <= 0) {
-        clearInterval(timer);
-        if (!hasAnswered) autoSubmitNullAnswer(); // Enviar respuesta nula si el tiempo se agota
-      }
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          if (!hasAnswered) {
+            sendEmptyAnswer();
+          }
+          return 0;
+        }
+        return prev - 1;
+      });
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [nextQuestionTime, hasAnswered]);
+  }, [timeLeft, hasAnswered]);
 
-  // Función para limpiar el tablero
-  const resetBoard = () => {
-    setTopPictogram(null);
-    setCenterCards([]);
-    setBottomNumber(null);
-  };
+  // Función mejorada para enviar respuesta vacía
+  const sendEmptyAnswer = async () => {
+    if (hasAnswered) return; // Evitar envíos múltiples
 
-  // Enviar respuesta nula si el tiempo se agota
-  const autoSubmitNullAnswer = () => {
-    const answer = {
+    const pin = localStorage.getItem("gamePin");
+    const emptyAnswer = {
       pictogram: null,
       colors: [],
       number: null,
     };
-    const pin = localStorage.getItem("gamePin");
+    
+    try {
+      socket.emit("submit-answer", { pin, answer: emptyAnswer, responseTime: 0 }, (response) => {
+        if (response.success) {
+          setMessage("Tiempo agotado - No respondiste a tiempo");
+          setHasAnswered(true);
+        } else {
+          console.error("Error al enviar respuesta vacía:", response.error);
+        }
+      });
+    } catch (error) {
+      console.error("Error al enviar respuesta vacía:", error);
+    }
+  };
 
-    socket.emit("submit-answer", { pin, answer, responseTime: 0 }, (response) => {
-      setMessage("Tiempo agotado. Respuesta incorrecta.");
-      setHasAnswered(true); // Marcar como respondido para evitar nuevos envíos
-    });
+  const resetBoard = () => {
+    setTopPictogram(null);
+    setCenterCards([]);
+    setBottomNumber(null);
   };
 
   const movePictogramToTop = (pictogram) => setTopPictogram(pictogram);
@@ -114,15 +128,14 @@ export default function Game() {
   const confirmResults = () => {
     if (hasAnswered) return;
 
-    const responseTime = timeLeft;
+    const pin = localStorage.getItem("gamePin");
     const answer = {
       pictogram: topPictogram ? topPictogram.id : null,
       colors: centerCards,
       number: bottomNumber,
     };
-    const pin = localStorage.getItem("gamePin");
 
-    socket.emit("submit-answer", { pin, answer, responseTime }, (response) => {
+    socket.emit("submit-answer", { pin, answer, responseTime: timeLeft }, (response) => {
       if (response.success) {
         setMessage(response.isCorrect ? "¡Respuesta correcta!" : "Respuesta incorrecta.");
         setHasAnswered(true);

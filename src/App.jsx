@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound/NotFound";
 import Layout from "./layouts/layout/Layout";
 import Game from "./pages/Game/Game";
 import JoinGame from "./pages/Home/JoinGame";
+import GameResults from "./components/admin/GameResults/GameResults";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,15 @@ const router = createBrowserRouter([
         <Game />
       </Layout>
     )
+  },
+  {
+    path: '/game-results',
+    element: (
+      <Layout>
+        <GameResults />
+      </Layout>
+    )
+
   }
 ]);
 
