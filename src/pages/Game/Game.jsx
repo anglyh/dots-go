@@ -4,9 +4,9 @@ import styles from "./Game.module.css";
 import Board from "../../components/game/Board/Board";
 import PictogramList from "../../components/game/PictogramList/PictogramList";
 import Number from "../../components/game/Number/Number";
-import Button from "../../components/common/Button/Button";
 import { socket } from "../../services/websocket/socketService";
 import { useNavigate } from "react-router-dom";
+import GameButton from "../../components/common/Button/GameButton";
 
 export default function Game() {
   const COLORS = ["white", "red", "black", "yellow", "blue", "green", "orange"];
@@ -151,14 +151,14 @@ export default function Game() {
       </div>
 
       <div className={styles.acceptButton}>
-        <Button
+        <GameButton
           onClick={confirmResults}
           disabled={
             !topPictogram || centerCards.length === 0 || bottomNumber === null || hasAnswered
           }
         >
           Confirmar
-        </Button>
+        </GameButton>
       </div>
 
       <div className={styles.cardContainer}>

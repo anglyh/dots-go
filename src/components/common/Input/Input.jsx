@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Input.module.css";
+import GameButton from "../Button/GameButton";
 
 export default function Input({ placeholder, buttonText, value, onChange, onSubmit }) {
   const handleKeyDown = (event) => {
@@ -18,9 +19,7 @@ export default function Input({ placeholder, buttonText, value, onChange, onSubm
         onKeyDown={handleKeyDown}
         className={styles.customInput}
       />
-      <button onClick={onSubmit} className={styles.submitButton}>
-        {buttonText}
-      </button>
+      <GameButton onClick={onSubmit}>{buttonText}</GameButton>
     </div>
   );
 }
