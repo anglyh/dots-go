@@ -4,11 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { socket, connectSocket, disconnectSocket } from "../../services/websocket/socketService";
 import GameCreator from "../../components/admin/GameCreator/GameCreator";
 import GameMonitor from "../../components/admin/GameMonitor/GameMonitor";
+import ListQuestions from "../../components/admin/GameCreator/ListQuestions";
 
 export default function Admin() {
   const [juegoCreado, setJuegoCreado] = useState(false);
   const [tiempo, setTiempo] = useState("");
   const [codigo, setCodigo] = useState("");
+  const [selectedQuestions, setSelectedQuestions] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,7 +29,7 @@ export default function Admin() {
   }, [navigate]);
 
   const handleCrearJuego = (tiempoJuego) => {
-    socket.emit("create-game", { timeLimit: parseInt(tiempoJuego) }, (response) => {
+    socket.emit("create-game", { timeLimit: parseInt(tiempoJuego) , questionIds: selectedQuestions }, (response) => {
       if (response.success) {
         setCodigo(response.pin);
         setTiempo(tiempoJuego);
@@ -49,7 +51,10 @@ export default function Admin() {
   return (
     <div>
       {!juegoCreado ? (
-        <GameCreator onCrearJuego={handleCrearJuego} />
+        <>
+            <GameCreator onCrearJuego={handleCrearJuego} />
+            <ListQuestions onSelectQuestions={setSelectedQuestions} />  
+        </>
       ) : (
         <GameMonitor tiempo={tiempo} codigo={codigo} onIniciarJuego={handleIniciarJuego} />
       )}
