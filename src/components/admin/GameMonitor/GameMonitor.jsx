@@ -1,8 +1,18 @@
 // GameMonitor.js
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styles from "./GameMonitor.module.css";
+import { socket } from "../../../services/websocket/socketService";
 
 export default function GameMonitor({ tiempo, codigo, onIniciarJuego, esperandoResultados }) {
+  const [players, setPlayers] = useState([]);
+  useEffect(() => {
+    socket.on("player-joined", ({players}) => {
+      setPlayers(players);
+    });
+    return () => {
+      socket.off("player-joined");
+    };
+  }, []);
   return (
     <div>
       <div className={styles.gameMonitorContainer}>
@@ -20,7 +30,11 @@ export default function GameMonitor({ tiempo, codigo, onIniciarJuego, esperandoR
       <div className={styles.connectedStudentsContainer}>
         <h3>Usuarios conectados</h3>
         <div className={styles.studentsList}>
-          {/* Aquí se pueden listar los jugadores conectados si tienes esa funcionalidad */}
+          {players.map((player) => (
+            <div key={player.id} className={styles.student}>
+              <p>{player.username}</p>
+            </div>
+          ))}
         </div>
       </div>
 
