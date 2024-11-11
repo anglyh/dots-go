@@ -1,10 +1,10 @@
-// Admin.js
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { socket, connectSocket, disconnectSocket } from "../../services/websocket/socketService";
 import GameCreator from "../../components/admin/GameCreator/GameCreator";
 import GameMonitor from "../../components/admin/GameMonitor/GameMonitor";
 import ListQuestions from "../../components/admin/GameCreator/ListQuestions";
+import styles from "./Admin.module.css";
 
 export default function Admin() {
   const [juegoCreado, setJuegoCreado] = useState(false);
@@ -29,7 +29,13 @@ export default function Admin() {
   }, [navigate]);
 
   const handleCrearJuego = (tiempoJuego) => {
-    socket.emit("create-game", { timeLimit: parseInt(tiempoJuego) , questionIds: selectedQuestions }, (response) => {
+    // Validar si al menos se ha seleccionado un pictograma
+    if (selectedQuestions.length === 0) {
+      alert("Por favor, selecciona al menos un pictograma antes de crear el juego.");
+      return;
+    }
+
+    socket.emit("create-game", { timeLimit: parseInt(tiempoJuego), questionIds: selectedQuestions }, (response) => {
       if (response.success) {
         setCodigo(response.pin);
         setTiempo(tiempoJuego);
@@ -51,10 +57,10 @@ export default function Admin() {
   return (
     <div>
       {!juegoCreado ? (
-        <>
+        <div className={styles.container}>
             <GameCreator onCrearJuego={handleCrearJuego} />
             <ListQuestions onSelectQuestions={setSelectedQuestions} />  
-        </>
+        </div>
       ) : (
         <GameMonitor tiempo={tiempo} codigo={codigo} onIniciarJuego={handleIniciarJuego} />
       )}

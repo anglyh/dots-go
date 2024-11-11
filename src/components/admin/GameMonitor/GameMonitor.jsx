@@ -1,4 +1,3 @@
-// GameMonitor.js
 import React, {useState, useEffect} from "react";
 import styles from "./GameMonitor.module.css";
 import { socket } from "../../../services/websocket/socketService";
