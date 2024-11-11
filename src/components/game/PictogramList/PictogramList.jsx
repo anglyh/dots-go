@@ -10,6 +10,7 @@ import oxidante from "../../../assets/images/pictograms/oxidante.svg"
 import baterias from "../../../assets/images/pictograms/baterias.svg"
 import riesgoBiologico from "../../../assets/images/pictograms/riesgo-biologico.svg"
 import radioactivo from "../../../assets/images/pictograms/radioactivo.svg"
+import triangulo from "../../../assets/images/pictograms/triangulo.png"
 
 const PICTOGRAMS = [
   { id: 'botella', src: botella },
@@ -21,6 +22,7 @@ const PICTOGRAMS = [
   { id: 'baterias', src: baterias },
   { id: 'riesgoBiologico', src: riesgoBiologico },
   { id: 'radioactivo', src: radioactivo },
+  { id: 'triangulo', src: triangulo}
 ];
 
 export default function PictogramList({ onPictogramSelect, selectedPictogram }) {
