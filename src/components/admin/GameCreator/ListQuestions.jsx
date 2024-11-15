@@ -6,7 +6,7 @@ export default function ListQuestions({ onSelectQuestions }) {
   const [selectedQuestions, setSelectedQuestions] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/questions")
+    fetch(`${import.meta.env.VITE_SERVER_URL}/api/questions`)
       .then((res) => res.json())
       .then((data) => setQuestions(data))
       .catch((err) => console.error("Error fetching questions:", err));
